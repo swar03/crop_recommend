@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #b71c1c; /* Dark Red */
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #ffffff; /* White background */
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for differentiation */
+            z-index: 1000;
+            justify-content: space-between;
+        }
+
+        .navbar img {
+            height: 40px;
+        }
+
+        .navbar .title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff1744; /* Bright Red */
+            margin: 0;
+        }
+
+        /* Carousel Styling */
+        .carousel {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .carousel img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Form Styling */
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        label {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            display: block;
+            color: #b71c1c; /* Dark Red */
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            transition: border 0.3s ease;
+        }
+
+        input:focus {
+            border: 1px solid #d32f2f; /* Dark Red */
+            outline: none;
+        }
+
+        button {
+            background-color: #ff1744; /* Bright Red */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #b71c1c; /* Dark Red */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+                width: 80%;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+
+        /* Loading Spinner */
+        .loading {
+            display: none;
+            font-size: 2em;
+            color: #b71c1c; /* Bright Red */
+            text-align: center;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        /* Back to Dashboard Button */
+        .back-button {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .back-button a {
+            background-color: #b71c1c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 1.1em;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button a:hover {
+            background-color: #8e0000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <p class="title">Dr. Vaishali Wadhe</p>
+        <p class="title">Dept of Artificial Intelligence And Data Science</p>
+    </div>
+
+    <!-- Carousel Section -->
+
+    <h1>Enter Crop Parameters for Prediction</h1>
+
+    <div class="loading" id="loading">Predicting...</div>
+
+    <!-- Form -->
+    <form action="/predict" method="POST" onsubmit="showLoading()">
+        <label for="temperature">Temperature (°C):</label>
+        <input type="number" id="temperature" name="temperature" step="any" required>
+
+        <label for="humidity">Humidity (%):</label>
+        <input type="number" id="humidity" name="humidity" step="any" required>
+
+        <label for="ph">pH:</label>
+        <input type="number" id="ph" name="ph" step="any" required>
+
+        <label for="rainfall">Rainfall (mm):</label>
+        <input type="number" id="rainfall" name="rainfall" step="any" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- Back to Dashboard Button -->
+
+
+    <script>
+        // Show the loading spinner when the form is submitted
+        function showLoading() {
+            document.getElementById('loading').classList.add('show');
+        }
+    </script>
+
+</body>
+</html>

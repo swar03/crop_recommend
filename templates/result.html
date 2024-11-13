@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        /* Result Box Styling */
+        .result-box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            margin: 20px;
+        }
+
+        .result-box p {
+            font-size: 1.2em;
+            color: #34495e;
+        }
+
+        .result-box .predicted-crop {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        /* Go Back Link Styling */
+        .go-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            color: #fff;
+            background-color: #3498db;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .go-back:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .go-back:active {
+            transform: scale(1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .result-box {
+                padding: 20px;
+                width: 90%;
+            }
+
+            .result-box p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Prediction Result</h1>
+    
+    <div class="result-box">
+        <p>The predicted crop based on your input is:</p>
+        <p class="predicted-crop">{{ predicted_crop }}</p>
+        <a href="/" class="go-back">Go Back</a>
+    </div>
+
+</body>
+</html>
